@@ -24,8 +24,8 @@ window.onload = function() {
       "K"
     ];
     const suitOpt = ["♦", "♥", "♠", "♣"];
-    let number = randomNumber[Math.floor(Math.random() * cardFace.length)];
-    let suit = randomSuit[Math.floor(Math.random() * suitOpt.length)];
+    let number = Math.floor(Math.random() * cardFace.length);
+    let suit = Math.floor(Math.random() * suitOpt.length);
 
     if (suit === "♥" || suit === "♦") {
       document.querySelector(".icon").classList.add("red");
