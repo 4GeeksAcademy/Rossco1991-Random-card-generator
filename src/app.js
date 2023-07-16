@@ -24,18 +24,16 @@ window.onload = function() {
       "K"
     ];
     const suitOpt = ["♦", "♥", "♠", "♣"];
-    const colorOfCard = ["red", "black"];
-    const cards = [];
+    let number = randomNumber[Math.floor(Math.random() * cardFace.length)];
+    let suit = randomSuit[Math.floor(Math.random() * suitOpt.length)];
 
-    for (let a = 0; a < cardFace.length; a++) {
-      for (let b = 0; b < suitOpt.length; b++) {
-        const faces = cardFace[a];
-        const suit = suitOpt[b];
-        cards.push({ faces, suit });
-      }
+    if (suit === "♥" || suit === "♦") {
+      document.querySelector(".icon").classList.add("red");
+    } else {
+      document.querySelector(".icon").classList.add("black");
     }
-    return cards;
+    document.querySelector(".icon").innerHTML = suit;
+    document.querySelector(".number").innerHTML = number;
   };
+  deckOfCards();
 };
-let test = deckOfCards();
-console.log(test);
