@@ -7,6 +7,15 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
+
+  const button = () => {
+    let newCard = document.querySelector(".card-changer");
+    newCard.addEventListener("click", function() {
+      deckOfCards();
+    });
+  };
+  button();
+
   const deckOfCards = () => {
     const cardFace = [
       "A",
@@ -28,12 +37,20 @@ window.onload = function() {
     let suit = suitOpt[Math.floor(Math.random() * suitOpt.length)];
 
     if (suit === "♥" || suit === "♦") {
-      document.querySelector(".icon").classList.add("red");
+      document.querySelectorAll(".icon").forEach(element => {
+        element.classList.add("red");
+        element.classList.remove("black");
+      });
     } else {
-      document.querySelector(".icon").classList.add("black");
+      document.querySelectorAll(".icon").forEach(element => {
+        element.classList.add("black");
+        element.classList.remove("red");
+      });
     }
-    document.querySelector(".icon").innerHTML = suit;
+    document
+      .querySelectorAll(".icon")
+      .forEach(element => (element.innerHTML = suit));
     document.querySelector(".number").innerHTML = number;
+    document.querySelector(".bottom").innerHTML = suit;
   };
-  deckOfCards();
 };
